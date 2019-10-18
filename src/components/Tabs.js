@@ -76,7 +76,7 @@ export default function SimpleTabs({ filteredCharacter, filteredLocations }) {
             </AppBar>
             <TabPanel value={value} index={0}>
                 <div className="tab0">
-                    {/* <CharacterList checked={checked} filteredCharacter={filteredCharacter}></CharacterList> */}
+                    <CharacterList checked={checked} filteredCharacter={filteredCharacter}></CharacterList>
 
                 </div>
             </TabPanel>
