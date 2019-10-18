@@ -11,7 +11,7 @@ import CharacterList from "./CharacterList";
 
 
 function TabPanel(props) {
-    const { children, value, index, filteredCharacter, ...other } = props;
+    const { children, value, index, ...other } = props;
 
     return (
         <Typography
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function SimpleTabs() {
+export default function SimpleTabs({ filteredCharacter }) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     const [checked, setChecked] = useState(true);
@@ -75,7 +75,7 @@ export default function SimpleTabs() {
             </AppBar>
             <TabPanel value={value} index={0}>
                 <div className="tab0">
-                    <CharacterList filteredCharacter={filteredCharacter}></CharacterList>
+                    <CharacterList checked={checked} filteredCharacter={filteredCharacter}></CharacterList>
 
                 </div>
             </TabPanel>

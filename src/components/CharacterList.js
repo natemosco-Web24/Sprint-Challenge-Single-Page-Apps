@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import CharacterCard from "./CharacterCard";
 
-export default function CharacterList({ filteredCharacter }) {
+export default function CharacterList({ filteredCharacter, checked }) {
   // TODO: Add useState to track data from useEffect
 
   useEffect(() => {
@@ -12,9 +12,9 @@ export default function CharacterList({ filteredCharacter }) {
 
   return (
     <section className="character-list">
-      {filteredCharacter.map(char => {
+      {filteredCharacter.map(char => (
         <CharacterCard key={char.id} char={char} checked={checked} ></CharacterCard>
-      })}
+      ))}
     </section>
   );
 }

@@ -6,13 +6,13 @@ const StyledWelcomePage = styled.main`
   width:97%;
   height:auto;
   min-height:90vh;
-  background: url("https://images5.alphacoders.com/796/796108.jpg") no-repeat 100%/cover;
+  background: url("https://images.alphacoders.com/936/936934.jpg") no-repeat 100%/cover;
   header{
-    background-color: #1e90ff85;
+    background-color: #ffffff1f;
     width:100%;
   }
   h1{
-    color: yellow;
+    color: #e6e6e6;
     text-shadow: -2px 3px 8px black;
   }
   .image{
@@ -21,7 +21,7 @@ const StyledWelcomePage = styled.main`
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    background: url("https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjpzP-4jKblAhUFrZ4KHVSzASgQjRx6BAgBEAQ&url=https%3A%2F%2Fwall.alphacoders.com%2Fbig.php%3Fi%3D936934&psig=AOvVaw0mEKWRTagYM0bqMcnMQEMF&ust=1571498014559961") no-repeat 100%/cover;
+    background: url("https://rickandmortyapi.com/api/character/avatar/1.jpeg") no-repeat 100%/cover;
  
     h4{
       background-color: #fdfdfd;
@@ -56,14 +56,14 @@ export default function WelcomePage() {
           <h1>Welcome to the ultimate fan site!</h1>
         </header>
         <div className="image">
-          <h4>I remember that...</h4>
-          <img
+          <h4> Good Times...</h4>
+          {/* <img
             className="main-img"
             src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
             alt="rick"
-          />
+          /> */}
         </div>
-        <Link to="/characterlist">
+        <Link to="/data">
           <button>Enter Here</button>
         </Link>
       </section>
