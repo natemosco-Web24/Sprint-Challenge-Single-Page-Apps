@@ -18,7 +18,10 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [filteredCharacter, setFilteredCharacter] = useState([]);
 
-  //first 25 initial API call, only needed once initially (avoid constant refires)
+  const [locations, setLocations] = useState([]);
+  const [filteredLocations, setFilteredLocations] = useState([]);
+
+  // first 25 initial API call on characters, only needed once initially (avoid constant refires)
   useEffect(() => {
     axios
       .get(`https://rickandmortyapi.com/api/character/?page=1`)
@@ -270,9 +273,6 @@ export default function App() {
       .catch(err => {
         console.log(`characters error page 25`, err)
       });
-
-
-
   }, []);
 
 
@@ -285,6 +285,60 @@ export default function App() {
     );
   }, [query]);
 
+
+  // get locations data   
+  useEffect(() => {
+    axios
+      .get(`https://rickandmortyapi.com/api/location/?page=1`)
+      .then(response => {
+        console.log(`locations response page=1`, response);
+        setLocations(locations => [...locations, ...response.data.results])
+        setFilteredLocations(filteredLocations => [...filteredLocations, ...response.data.results]);
+      })
+      .catch(err => {
+        console.log(`locations error page 1`, err)
+      });
+    axios
+      .get(`https://rickandmortyapi.com/api/location/?page=2`)
+      .then(response => {
+        console.log(`locations response page=2`, response);
+        setLocations(locations => [...locations, ...response.data.results])
+        setFilteredLocations(filteredLocations => [...filteredLocations, ...response.data.results]);
+      })
+      .catch(err => {
+        console.log(`locations error page 2`, err)
+      });
+    axios
+      .get(`https://rickandmortyapi.com/api/location/?page=3`)
+      .then(response => {
+        console.log(`locations response page=3`, response);
+        setLocations(locations => [...locations, ...response.data.results])
+        setFilteredLocations(filteredLocations => [...filteredLocations, ...response.data.results]);
+      })
+      .catch(err => {
+        console.log(`locations error page 3`, err)
+      });
+    axios
+      .get(`https://rickandmortyapi.com/api/location/?page=4`)
+      .then(response => {
+        console.log(`locations response page=4`, response);
+        setLocations(locations => [...locations, ...response.data.results])
+        setFilteredLocations(filteredLocations => [...filteredLocations, ...response.data.results]);
+      })
+      .catch(err => {
+        console.log(`locations error page 4`, err)
+      });
+
+  }, [])
+  //filter through collected data that is held in state
+  useEffect(() => {
+    setFilteredLocations(
+      locations.filter(place =>
+        place.name.toLowerCase().includes(query.toLowerCase())
+      )
+    );
+  }, [query]);
+
   return (
     <main>
       <header>
@@ -293,7 +347,7 @@ export default function App() {
       </header>
       <section>
         <Route exact path="/" component={WelcomePage}></Route>
-        <Route path="/data" render={(props) => <Tabs {...props} filteredCharacter={filteredCharacter} />}></Route>
+        <Route path="/data" render={(props) => <Tabs {...props} filteredCharacter={filteredCharacter} filteredLocations={filteredLocations} />}></Route>
       </section>
     </main>
   );

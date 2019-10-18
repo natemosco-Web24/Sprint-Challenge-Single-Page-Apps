@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import CharacterList from "./CharacterList";
+import LocationsList from './LocationsList';
 
 
 function TabPanel(props) {
@@ -47,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function SimpleTabs({ filteredCharacter }) {
+export default function SimpleTabs({ filteredCharacter, filteredLocations }) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     const [checked, setChecked] = useState(true);
@@ -68,20 +69,20 @@ export default function SimpleTabs({ filteredCharacter }) {
         <div className={classes.root}>
             <AppBar position="static">
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-                    <Tab onClick={() => { handleZoom() }} label="Item One" {...a11yProps(0)} />
-                    <Tab onClick={() => { handleZoom() }} label="Item Two" {...a11yProps(1)} />
+                    <Tab onClick={() => { handleZoom() }} label="Characters" {...a11yProps(0)} />
+                    <Tab onClick={() => { handleZoom() }} label="Locations" {...a11yProps(1)} />
                     <Tab onClick={() => { handleZoom() }} label="Item Three" {...a11yProps(2)} />
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
                 <div className="tab0">
-                    <CharacterList checked={checked} filteredCharacter={filteredCharacter}></CharacterList>
+                    {/* <CharacterList checked={checked} filteredCharacter={filteredCharacter}></CharacterList> */}
 
                 </div>
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <div className="tab0">
-
+                    <LocationsList checked={checked} filteredLocations={filteredLocations}></LocationsList>
 
                 </div>
             </TabPanel>

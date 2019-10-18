@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 
 
-export default function ControlledAccordion({ char }) {
+export default function AccordionCharacter({ char }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = panel => (event, isExpanded) => {
