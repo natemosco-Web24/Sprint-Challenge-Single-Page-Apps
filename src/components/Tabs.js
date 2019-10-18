@@ -7,10 +7,11 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-import Cards from "./Cards"
+import CharacterList from "./CharacterList";
+
 
 function TabPanel(props) {
-    const { children, value, index, ...other } = props;
+    const { children, value, index, filteredCharacter, ...other } = props;
 
     return (
         <Typography
@@ -74,17 +75,21 @@ export default function SimpleTabs() {
             </AppBar>
             <TabPanel value={value} index={0}>
                 <div className="tab0">
-                    <Cards checked={checked} ></Cards>
+                    <CharacterList filteredCharacter={filteredCharacter}></CharacterList>
 
                 </div>
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
-                <Cards checked={checked} ></Cards>
+                <div className="tab0">
+
+
+                </div>
             </TabPanel>
             <TabPanel value={value} index={2}>
-                Item Three
-                <Cards checked={checked} ></Cards>
+                <div className="tab0">
+
+
+                </div>
             </TabPanel>
         </div>
     );

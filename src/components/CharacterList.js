@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-export default function CharacterList() {
+import CharacterCard from "./CharacterCard";
+
+export default function CharacterList({ filteredCharacter }) {
   // TODO: Add useState to track data from useEffect
 
   useEffect(() => {
@@ -10,7 +12,9 @@ export default function CharacterList() {
 
   return (
     <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
+      {filteredCharacter.map(char => {
+        <CharacterCard key={char.id} char={char} checked={checked} ></CharacterCard>
+      })}
     </section>
   );
 }
