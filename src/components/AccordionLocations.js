@@ -84,8 +84,8 @@ export default function ControlledAccordion(props) {
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Typography>
-                        <p>{`Type: ${props.type}`}</p>
-                        <p>{`Dimension: ${props.dimension}`}</p>
+                        <p>{`Type: ${props.place.type}`}</p>
+                        <p>{`Dimension: ${props.place.dimension}`}</p>
                     </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
