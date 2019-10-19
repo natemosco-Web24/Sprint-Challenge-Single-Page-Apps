@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
+import CharacterCard from "./CharacterCard";
 
-  useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
-
+export default function CharacterList({ filteredCharacter, checked }) {
   return (
     <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
+      {filteredCharacter.map(char => (
+        <CharacterCard key={char.id} char={char} checked={checked} ></CharacterCard>
+      ))}
     </section>
   );
 }

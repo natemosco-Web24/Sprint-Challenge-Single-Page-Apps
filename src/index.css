@@ -37,3 +37,22 @@ main {
 header h1 {
   text-align: center;
 }
+
+.character-list{
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.tab0{
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.Cards{
+  width:27%;
+}
+img{
+  width:100%
+}
